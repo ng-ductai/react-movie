@@ -1,0 +1,51 @@
+@use "../../scss/" as *;
+
+.footer {
+    position: relative;
+    padding: 2rem;
+    border-top: 3px solid #ffec3f;
+    background-color: #111;
+
+    &__content {
+        max-width: 1000px;
+
+        &__menus {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            @include tablet {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        &__menu {
+            @include flex(flex-start, flex-start);
+            flex-direction: column;
+            padding: 0 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 2rem;
+                         
+
+            .title {
+                color: #44e2ff;
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+
+            & > * ~ * {
+                margin-top: 0.5rem;
+            }
+
+            .content {
+                font-size: 12px;
+            }
+           
+            .logo {
+                font-size: 1.8rem;
+                font-weight: 600;
+            }
+            
+        }
+    }
+}
