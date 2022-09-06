@@ -3,15 +3,25 @@ import SwiperCore, { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Modal, { ModalContent } from '../modal/Modal';
 import tmdbApi, { movieType } from '../../api/tmdbApi';
+import SlideItem from './SlideItem';
+import './Slide.scss';
 
-import './HeroSlide.scss';
+const TrailerModal = props => {
+    const item = props.item;
+    const iframeRef = useRef(null);
+    const onClose = () => iframeRef.current.setAttribute('src', '');
 
-import HeroSlideItem from './HeroSliderItem';
+    return (
+        <Modal active={false} id={`modal_${item.id}`}>
+            <ModalContent onClose={onClose}>
+                <iframe ref={iframeRef} width="100%" height="500px" title="trailer"></iframe>
+            </ModalContent>
+        </Modal>
+    )
+}
 
-const HeroSlide = () => {
-
+const Slide = () => {
     SwiperCore.use([Autoplay]);
-
     const [movieItems, setMovieItems] = useState([]);
 
     useEffect(() => {
@@ -29,7 +39,7 @@ const HeroSlide = () => {
     }, []);
 
     return (
-        <div className="hero-slide">
+        <div className="slide">
             <Swiper
                 modules={[Autoplay]}
                 grabCursor={true}
@@ -40,7 +50,7 @@ const HeroSlide = () => {
                     movieItems.map((item, i) => (
                         <SwiperSlide key={i}>
                             {({ isActive }) => (
-                                <HeroSlideItem item={item} className={`${isActive ? 'active' : ''}`} />
+                                <SlideItem item={item} className={`${isActive ? 'active' : ''}`} />
                             )}
                         </SwiperSlide>
                     ))
@@ -54,20 +64,6 @@ const HeroSlide = () => {
 }
 
 
-const TrailerModal = props => {
-    const item = props.item;
 
-    const iframeRef = useRef(null);
 
-    const onClose = () => iframeRef.current.setAttribute('src', '');
-
-    return (
-        <Modal active={false} id={`modal_${item.id}`}>
-            <ModalContent onClose={onClose}>
-                <iframe ref={iframeRef} width="100%" height="500px" title="trailer"></iframe>
-            </ModalContent>
-        </Modal>
-    )
-}
-
-export default HeroSlide;
+export default Slide;

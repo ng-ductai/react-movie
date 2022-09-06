@@ -1,18 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory } from 'react-router';
-
-import './MovieSearch.scss';
-
+import './Search.scss';
 import Button from '../button/Button';
 import Input from '../input/Input'
-
 import { category } from '../../api/tmdbApi';
 
-
-const MovieSearch = props => {
-
+const Search = props => {
     const history = useHistory();
-
     const [keyword, setKeyword] = useState(props.keyword ? props.keyword : '');
 
     const goToSearch = useCallback(
@@ -38,7 +32,7 @@ const MovieSearch = props => {
     }, [keyword, goToSearch]);
 
     return (
-        <div className="movie-search">
+        <div className="search">
             <Input
                 type="text"
                 placeholder="Enter keyword"
@@ -50,4 +44,4 @@ const MovieSearch = props => {
     )
 }
 
-export default MovieSearch
+export default Search

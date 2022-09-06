@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './MovieList.scss';
-
+import './List.scss';
 import { SwiperSlide, Swiper } from 'swiper/react';
-
 import tmdbApi, { category } from '../../api/tmdbApi';
+import Card from '../card/Card';
 
-import MovieCard from '../movie-card/MovieCard';
-
-const MovieList = props => {
-
+const List = props => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -33,7 +29,7 @@ const MovieList = props => {
     }, []);
 
     return (
-        <div className="movie-list">
+        <div className="list">
             <Swiper
                 grabCursor={true}
                 spaceBetween={10}
@@ -42,7 +38,7 @@ const MovieList = props => {
                 {
                     items.map((item, i) => (
                         <SwiperSlide key={i}>
-                            <MovieCard item={item} category={props.category}/>
+                            <Card item={item} category={props.category}/>
                         </SwiperSlide>
                     ))
                 }
@@ -51,4 +47,4 @@ const MovieList = props => {
     );
 }
 
-export default MovieList;
+export default List;

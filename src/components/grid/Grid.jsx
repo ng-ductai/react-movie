@@ -1,21 +1,15 @@
 import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router';
-
-import './MovieGrid.scss';
-
-import MovieCard from '../movie-card/MovieCard';
+import './Grid.scss';
+import Card from '../card/Card';
 import { OutlineButton } from '../button/Button';
-import MovieSearch from '../movie-search/MovieSearch';
-
+import Search from '../search/Search';
 import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
 
-const MovieGrid = props => {
-
+const Grid = props => {
     const [items, setItems] = useState([]);
-
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
-
     const { keyword } = useParams();
 
     useEffect(() => {
@@ -69,16 +63,16 @@ const MovieGrid = props => {
     return (
         <>
             <div className="section mb-3">
-                <MovieSearch category={props.category} keyword={keyword}/>
+                <Search category={props.category} keyword={keyword}/>
             </div>
-            <div className="movie-grid">
+            <div className="grids">
                 {
-                    items.map((item, i) => <MovieCard category={props.category} item={item} key={i}/>)
+                    items.map((item, i) => <Card category={props.category} item={item} key={i}/>)
                 }
             </div>
             {
                 page < totalPage ? (
-                    <div className="movie-grid__loadmore">
+                    <div className="grids__loadmore">
                         <OutlineButton className="small" onClick={loadMore}>Load more</OutlineButton>
                     </div>
                 ) : null
@@ -87,4 +81,4 @@ const MovieGrid = props => {
     );
 }
 
-export default MovieGrid;
+export default Grid;

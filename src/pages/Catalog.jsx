@@ -1,14 +1,10 @@
 import React, {useEffect} from 'react';
-
 import { useParams } from 'react-router';
-
-import PageHeader from '../components/page-header/PageHeader';
-
+import Banner from '../components/banner/Banner';
 import { category as cate } from '../api/tmdbApi';
-import MovieGrid from '../components/movie-grid/MovieGrid';
+import Grid from '../components/grid/Grid';
 
 const Catalog = () => {
-
     const { category } = useParams();
 
     useEffect(() => {
@@ -17,12 +13,12 @@ const Catalog = () => {
 
     return (
         <>
-            <PageHeader>
+            <Banner>
                 {category === cate.movie ? 'Movies' : 'TV Series'}
-            </PageHeader>
+            </Banner>
             <div className="container">
                 <div className="section mb-3">
-                    <MovieGrid category={category}/>
+                    <Grid category={category}/>
                 </div>
             </div>
         </>

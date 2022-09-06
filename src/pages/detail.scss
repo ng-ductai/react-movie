@@ -1,4 +1,4 @@
-@use "../../scss/" as *;
+@use "../scss/" as *;
 
 .banner {
     height: 50vh;
@@ -28,7 +28,7 @@
     }
 }
 
-.movie-content {
+.contents {
     @include flex(flex-start, flex-start);
     max-width: 1260px;
     margin-left: auto;
@@ -89,28 +89,6 @@
     }
 }
 
-.casts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 10px;
 
-    &__item {
-        &__img {
-            padding-top: 160px;
-            background-size: cover;
-            margin-bottom: 0.5rem;
-        }
 
-        &__name {
-            font-size: 0.8rem;
-        }
-    }
-}
 
-.video {
-    margin-bottom: 3rem;
-
-    &__title {
-        margin-bottom: 1.5rem;
-    }
-}

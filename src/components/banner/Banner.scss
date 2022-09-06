@@ -1,17 +1,15 @@
 @use "../../scss/variables" as *;
 
-.page-header {
+.banner {
     padding: $header-height 0 2rem;
     text-align: center;
     margin-bottom: 2rem;
-
     position: relative;
-
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
 
-    h2 {
+    h1 {
         position: relative;
         z-index: 99;
     }

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Modal.scss';
 
 const Modal = props => {
-
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -17,7 +16,6 @@ const Modal = props => {
 }
 
 export const ModalContent = props => {
-
     const contentRef = useRef(null);
 
     const closeModal = () => {

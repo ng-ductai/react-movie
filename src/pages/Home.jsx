@@ -1,64 +1,60 @@
-import React, {useEffect} from 'react';
-import { Link } from 'react-router-dom';
-
-import { OutlineButton } from '../components/button/Button';
-import HeroSlide from '../components/hero-slide/HeroSlide';
-import MovieList from '../components/movie-list/MovieList';
-
-import { category, movieType, tvType } from '../api/tmdbApi';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { OutlineButton } from "../components/button/Button";
+import HeroSlide from "../components/slide/Slide";
+import List from "../components/list/List";
+import { category, movieType, tvType } from "../api/tmdbApi";
 
 const Home = () => {
-  
-    useEffect(() => {
-        window.scrollTo(0,0)
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-    return (
-        <>
-            <HeroSlide/>
-            <div className="container">
-                <div className="section mb-3">
-                    <div className="section__header mb-2">
-                        <h2>Trending Movies</h2>
-                        <Link to="/movie">
-                            <OutlineButton className="small">View more</OutlineButton>
-                        </Link>
-                    </div>
-                    <MovieList category={category.movie} type={movieType.popular}/>
-                </div>
+  const list = [
+    {
+      title: "Trending Movies",
+      path: "/movie",
+      category: category.movie,
+      type: movieType.popular,
+    },
+    {
+      title: "Top Rated Movies",
+      path: "/movie",
+      category: category.movie,
+      type: movieType.top_rated,
+    },
+    {
+      title: "Trending TV",
+      path: "/tv",
+      category: category.tv,
+      type: tvType.popular,
+    },
+    {
+      title: "Top Rated TV",
+      path: "/tv",
+      category: category.tv,
+      type: tvType.top_rated,
+    },
+  ];
 
-                <div className="section mb-3">
-                    <div className="section__header mb-2">
-                        <h2>Top Rated Movies</h2>
-                        <Link to="/movie">
-                            <OutlineButton className="small">View more</OutlineButton>
-                        </Link>
-                    </div>
-                    <MovieList category={category.movie} type={movieType.top_rated}/>
-                </div>
-
-                <div className="section mb-3">
-                    <div className="section__header mb-2">
-                        <h2>Trending TV</h2>
-                        <Link to="/tv">
-                            <OutlineButton className="small">View more</OutlineButton>
-                        </Link>
-                    </div>
-                    <MovieList category={category.tv} type={tvType.popular}/>
-                </div>
-
-                <div className="section mb-3">
-                    <div className="section__header mb-2">
-                        <h2>Top Rated TV</h2>
-                        <Link to="/tv">
-                            <OutlineButton className="small">View more</OutlineButton>
-                        </Link>
-                    </div>
-                    <MovieList category={category.tv} type={tvType.top_rated}/>
-                </div>
+  return (
+    <>
+      <HeroSlide />
+      <div className="container">
+        {list.map((item, index) => (
+          <div className="section mb-3" key={index}>
+            <div className="section__header mb-2">
+              <h2>{item.title}</h2>
+              <Link to={item.path}>
+                <OutlineButton className="small">View more</OutlineButton>
+              </Link>
             </div>
-        </>
-    );
-}
+            <List category={item.category} type={item.type} />
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
 
 export default Home;

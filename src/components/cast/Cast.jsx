@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
 import { useParams } from 'react-router';
-
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
+import './Cast.scss'
 
-const CastList = props => {
-
+const Cast = props => {
     const {category} = useParams();
-
     const [casts, setCasts] = useState([]);
 
     useEffect(() => {
@@ -18,6 +15,7 @@ const CastList = props => {
         }
         getCredits();
     }, [category, props.id]);
+    
     return (
         <div className="casts">
             {
@@ -32,4 +30,4 @@ const CastList = props => {
     );
 }
 
-export default CastList;
+export default Cast;
