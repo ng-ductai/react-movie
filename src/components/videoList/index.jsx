@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router";
 import tmdbApi from "../../api/tmdbApi";
-import "./VideoList.scss";
 
 const Video = (props) => {
   const item = props.item;

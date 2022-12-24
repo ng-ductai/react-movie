@@ -1,3 +1,19 @@
-@forward "./variables";
-@forward "./mixin";
-@forward "./breakpoint";
+@import "./variables";
+@import "./mixin";
+@import "./breakpoint";
+
+@import "../scss/components/banner.scss";
+@import "../scss/components/button.scss";
+@import "../scss/components/card.scss";
+@import "../scss/components/cast.scss";
+@import "../scss/components/footer.scss";
+@import "../scss/components/grid.scss";
+@import "../scss/components/header.scss";
+@import "../scss/components/input.scss";
+@import "../scss/components/list.scss";
+@import "../scss/components/modal.scss";
+@import "../scss/components/search.scss";
+@import "../scss/components/slide.scss";
+@import "../scss/components/videoList.scss";
+
+@import "../scss/pages/detail.scss";

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { OutlineButton } from "../components/button/Button";
-import HeroSlide from "../components/slide/Slide";
-import List from "../components/list/List";
+import { OutlineButton } from "../components/button";
+import HeroSlide from "../components/slide";
+import List from "../components/list";
 import { category, movieType, tvType } from "../api/tmdbApi";
 
 const Home = () => {

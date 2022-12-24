@@ -1,9 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router';
-import './Grid.scss';
-import Card from '../card/Card';
-import { OutlineButton } from '../button/Button';
-import Search from '../search/Search';
+import Card from '../card';
+import { OutlineButton } from '../button';
+import Search from '../search';
 import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
 
 const Grid = props => {

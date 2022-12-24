@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./detail.scss";
 import { useParams } from "react-router";
 import tmdbApi from "../api/tmdbApi";
 import apiConfig from "../api/apiConfig";
-import Cast from "../components/cast/Cast";
-import VideoList from "../components/videoList/VideoList";
-import List from "../components/list/List";
+import Cast from "../components/cast";
+import VideoList from "../components/videoList";
+import List from "../components/list";
 
 const Detail = () => {
   const { category, id } = useParams();
@@ -44,7 +43,7 @@ const Detail = () => {
                 }}
               />
             </div>
-            
+
             <div className="contents__info">
               <h1 className="title">{item.title || item.name}</h1>
               <div className="genres">
